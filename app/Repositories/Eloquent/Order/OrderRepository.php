@@ -198,7 +198,7 @@ class OrderRepository implements OrderRepositoryInterface
 
                     $price = $product->current_price;
                     $total = $price * $requestedQuantity;
-                    
+
                     $orderItems[] = [
                         'product_id' => $productId,
                         'product_name' => $product->name,
@@ -210,7 +210,7 @@ class OrderRepository implements OrderRepositoryInterface
 
                     $subtotal += $total;
                     $product->decrement('stock_quantity', $requestedQuantity);
-                    
+
                     if ($product->stock_quantity <= 0) {
                         $product->update(['in_stock' => false]);
                     }
@@ -243,6 +243,7 @@ class OrderRepository implements OrderRepositoryInterface
             });
 
             $order->load('orderItems.product');
+            event(new \App\Events\OrderCreated($order));
             return ApiResponse::success(data: new OrderResource($order), message: 'Order created successfully');
 
         } catch (\Exception $e) {

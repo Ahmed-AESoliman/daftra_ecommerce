@@ -1,0 +1,93 @@
+/* Custom styling for react-range-slider-input */
+.range-slider-custom {
+    --primary-color: #000000;
+    --value-active-color: #ffffff;
+    --value-background: transparent;
+    --value-background-hover: #f3f4f6;
+    --value-font: inherit;
+    --fill-color: #000000;
+    --progress-background: #e5e7eb;
+    --progress-radius: 6px;
+    --track-height: 6px;
+    --thumb-size: 18px;
+    --thumb-color: #000000;
+    --thumb-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --thumb-shadow-hover: 0 4px 8px rgba(0, 0, 0, 0.15);
+    --thumb-shadow-active: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.range-slider-custom .range-slider {
+    height: var(--track-height);
+    background: var(--progress-background);
+    border-radius: var(--progress-radius);
+    position: relative;
+    margin: 15px 0;
+}
+
+.range-slider-custom .range-slider__range {
+    height: 100%;
+    background: var(--fill-color);
+    border-radius: var(--progress-radius);
+    position: absolute;
+}
+
+.range-slider-custom input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: var(--track-height);
+    background: transparent;
+    outline: none;
+    position: absolute;
+    width: 100%;
+    pointer-events: none;
+}
+
+.range-slider-custom input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    border-radius: 50%;
+    background: var(--thumb-color);
+    border: 2px solid #ffffff;
+    box-shadow: var(--thumb-shadow);
+    cursor: pointer;
+    pointer-events: all;
+    transition: all 0.2s ease;
+}
+
+.range-slider-custom input[type='range']::-moz-range-thumb {
+    height: var(--thumb-size);
+    width: var(--thumb-size);
+    border-radius: 50%;
+    background: var(--thumb-color);
+    border: 2px solid #ffffff;
+    box-shadow: var(--thumb-shadow);
+    cursor: pointer;
+    pointer-events: all;
+    transition: all 0.2s ease;
+    border: none;
+}
+
+.range-slider-custom input[type='range']:hover::-webkit-slider-thumb {
+    box-shadow: var(--thumb-shadow-hover);
+    transform: scale(1.1);
+}
+
+.range-slider-custom input[type='range']:hover::-moz-range-thumb {
+    box-shadow: var(--thumb-shadow-hover);
+    transform: scale(1.1);
+}
+
+.range-slider-custom input[type='range']:active::-webkit-slider-thumb {
+    box-shadow: var(--thumb-shadow-active);
+    transform: scale(1.05);
+}
+
+.range-slider-custom input[type='range']:active::-moz-range-thumb {
+    box-shadow: var(--thumb-shadow-active);
+    transform: scale(1.05);
+}
+.range-slider-custom .range-slider__thumb {
+    background: var(--thumb-color);
+}

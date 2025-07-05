@@ -22,12 +22,12 @@ class ProductFactory extends Factory
             'stock_quantity' => $this->faker->numberBetween(0, 100),
             'in_stock' => $this->faker->boolean(80),
             'is_active' => $this->faker->boolean(90),
-            'images' => $this->faker->optional(0.7)->randomElements([
+            'image' => $this->faker->optional(0.7)->randomElement([
                 'product1.jpg',
                 'product2.jpg', 
                 'product3.jpg',
                 'product4.jpg'
-            ], $this->faker->numberBetween(1, 3)),
+            ]),
             'category_id' => Category::factory(),
         ];
     }
